@@ -22,12 +22,15 @@
   height: 64px;
 }
 
-.app-hero-code,
-.app-hero-code:hover,
-.app-hero-code:active {
+.app-hero-code {
+  display: flex;
+  align-items: center;
   background: transparent !important;
+  padding: 1rem 2rem;
   border: 1px solid rgba(0, 0, 0, 0.176);
-  user-select: text;
+  border-radius: 6px;
+  -webkit-user-select: none;
+  user-select: none;
   cursor: text;
 }
 
@@ -35,12 +38,21 @@
   display: inline-block;
   font-size: 1rem;
   width: 1rem;
-  /* color: var(--bs-btn-border-color); */
   margin: 0 .66rem 0 -.5rem;
+  opacity: .5;
+}
+
+.app-hero-code > code {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .app-points {
   margin-bottom: -.5rem;
+}
+
+h3.card-title {
+  font-size: 1.25rem;
 }
 
 .card-title a {

@@ -33,12 +33,13 @@
       <app-hero>
         The benefits of a modern reactive&nbsp;web&nbsp;framework,<br/>
         without the drawbacks.
-        <div :slot="cta" class="app-hero-code btn btn-outline-secondary btn-lg px-4">
+        <div :slot="cta" class="app-hero-code">
           <i class="bi bi-currency-dollar"></i><code>npm i pagelogic</code>
         </div>
       </app-hero>
 
       <div class="container px-4 px-sm-3">
+        <h2 style="display: none" aria-hidden="true">Selling points</h2>
         <div class="row">
           <app-card :icon="code-slash" :title="HTML-centric">
             <a href="https://react.dev/" target="_blank">React</a>,
@@ -46,25 +47,21 @@
             <a href="https://angular.io/" target="_blank">Angular</a>
             strive to turn HTML authoring into JavaScript development.
             We do the opposite.
-            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
           </app-card>
 
           <app-card :icon="braces" :title="Reactive">
             PageLogic brings reactivity to HTML itself with a small
             set of extensions, making it ideal for presentation logic.
-            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
           </app-card>
 
-          <app-card :icon="hdd-stack" :title="SSR-ready">
+          <app-card :icon="hdd-stack" :title="SEO-friendly">
             Deliverying content-ready pages to search engines can be
             challenging. PageLogic does it by default.
-            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
           </app-card>
 
           <app-card :icon="puzzle" :title="Component-oriented">
             Code blocks can easily become reusable components.
             This promotes building up your own libraries.
-            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
           </app-card>
         </div>
       </div>
