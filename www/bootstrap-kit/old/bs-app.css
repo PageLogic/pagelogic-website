@@ -1,0 +1,65 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+main.bs-app {
+  position: absolute;
+  min-height: 100%;
+}
+
+.bs-app-menu {
+  /* position: fixed; */
+  min-height: 100%;
+  font-size: 1rem;
+  overflow-y: auto;
+}
+
+.bs-app-menu-nav {
+  opacity: 0;
+}
+
+.bs-app-menu-nav.visible {
+  opacity: 1;
+  transition: opacity .1s;
+}
+
+.bs-app-menu-item {
+  background-color: transparent;
+}
+
+.bs-app-menu-item > a > i {
+  display: inline-block;
+  font-size: 1.1rem;
+  width: 1.1rem;
+  margin: 0 4px 0 -4px;
+}
+
+.bs-app-main {
+  flex: 1;
+}
+
+.bs-app-title {
+  margin-top: .25rem;
+}
+
+.bs-app-title.logo {
+
+}
+
+.bs-app-title.text {
+
+}
+
+.bs-app-subtitle {
+  font-size: 90%;
+  font-weight: 300;
+  margin: 1rem 0 0 0;
+  padding-left: .66rem;
+  opacity: .55;
+}

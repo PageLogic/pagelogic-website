@@ -1,0 +1,19 @@
+<lib>
+
+<!--- https://getbootstrap.com/docs/5.3/examples/heroes/ -->
+<:define tag="app-hero" class="app-hero px-4 py-5 my-3 text-center">
+  <div class="app-hero-logo mb-4">
+    <img class="d-block mx-auto" src="/assets/logo.svg" alt=""/>
+  </div>
+  <h1 class="display-5 fw-bold text-body-emphasis">PageLogic</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      <:slot name="default"/>
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <:slot name="cta"/>
+    </div>
+  </div>
+</:define>
+
+</lib>

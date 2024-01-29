@@ -1,0 +1,59 @@
+<lib>
+
+<!---<:include src="/lib/markdown-it.min.js" as="script"/>
+<:include src="/lib/highlight/highlight.min.js" as="script"/>-->
+<script src="/lib/markdown-it.min.js"></script>
+<script src="/lib/highlight/highlight.min.js"></script>
+<link rel="stylesheet" href="/lib/highlight/styles/github.css"/>
+<!-- <link href="/lib/github-markdown.min.css" rel="stylesheet"/> -->
+<link rel="stylesheet" href="/kit/markdown-it.css"/>
+
+<!---
+  <:include src="/markdown/README.md" as="markdown-it"/>
+-->
+<!---
+  <pl-data :aka="markdownData" :url="/markdown/README.md" :type="text"/>
+  <markdown-it :data={markdownData.content}/>
+-->
+
+<:define tag="markdown-it" class="markdown-body"
+  :data={''}
+  :prepro={(s) => s}
+  :postpro={(dom) => null}
+
+  :did-init={() => {
+    if (!$scope.object['markdownItInstance']) {
+      $scope.object['markdownItInstance'] = window.markdownit({
+        html: true,
+      });
+    }
+    const content = $scope.dom.innerHTML;
+    if (!content.trim() || $scope.dom.getAttribute('data-pl-static')) {
+      return;
+    }
+    $scope.dom.setAttribute('data-pl-static', '');
+    let s = '\n' + content.replaceAll('&lt;', '<').replaceAll('&gt;', '>');
+    s = prepro(s);
+    const result = $scope.object['markdownItInstance'].render(s);
+    $scope.dom.innerHTML = '\n' + result;
+    _postpro($scope.dom);
+  }}
+
+  :handle-data={(() => {
+    if (!data) {
+      return;
+    }
+    let s = '\n' + data;
+    s = prepro(s);
+    const result = $scope.object['markdownItInstance'].render(s);
+    $scope.dom.innerHTML = '\n' + result;
+    _postpro($scope.dom);
+  })()}
+
+  :_postpro={(dom) => {
+    window.hljs.highlightAll();
+    postpro(dom);
+  }}
+></:define>
+
+</lib>

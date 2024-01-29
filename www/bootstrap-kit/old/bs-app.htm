@@ -1,0 +1,45 @@
+<lib>
+  <link href="/bootstrap-kit/old/bs-app.css" rel="stylesheet"/>
+
+  <:define tag="bs-app:main" class="bs-app d-flex flex-nowrap">
+  </:define>
+
+  <:define tag="bs-app-menu" class="bs-app-menu d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+  </:define>
+
+  <:define tag="bs-app-main" class="bs-app-main">
+  </:define>
+
+  <:define tag="bs-app-title"
+    class="bs-app-title d-flex align-items-center mb-0 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+    :logo=""
+    :text=""
+  >
+    <a href="/" class="d-flex align-items-center mb-0 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <img src={logo} style="width:36px; height:36px; margin-left:0px; margin-right:11px !important; border-radius:6px;"/>
+      <span class="fs-4">{text}</span>
+    </a>
+  </:define>
+
+  <:define tag="bs-app-subtitle" class="bs-app-subtitle">
+  </:define>
+
+  <:define tag="bs-app-menu-nav:ul" class="bs-app-menu-nav nav nav-pills flex-column mb-auto"
+    :class-visible={false}
+    :did-init={() => window.setTimeout(() => class$visible = true, 100)}
+  >
+  </:define>
+
+  <:define tag="bs-app-menu-item:li" class="bs-app-menu-item nav-item"
+    :icon=""
+    :text=""
+    :active={false}
+  >
+    <a href="#" class="nav-link" aria-current="page"
+      :class-active={active}
+    >
+      <i class={'bi-' + icon}></i>
+      {text}
+    </a>
+  </:define>
+</lib>

@@ -1,0 +1,22 @@
+<lib>
+
+<:define tag="app-card" class="col-sm-6 col-xl-3 d-flex"
+  :icon="" :title=""
+>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">
+        <i class={`bi bi-${icon}`}></i>&nbsp;&nbsp;<a href="#">{title}</a>
+      </h5>
+      <hr/>
+      <p class="card-text">
+        <:slot name="default"/>
+      </p>
+    </div>
+    <!-- <div class="card-footer">
+      <:slot name="footer"/>
+    </div> -->
+  </div>
+</:define>
+
+</lib>

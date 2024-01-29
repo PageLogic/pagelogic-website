@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <:import src="/bootstrap-kit/all.htm"/>
+    <title>PageLogic</title>
+    <:import src="/kit/stdlib.htm"/>
+    <:import src="/kit/markdown-it.htm"/>
+    <:import src="/app-kit/card.htm"/>
+    <:import src="/app-kit/hero.htm"/>
+    <link rel="stylesheet" href="/index.css"/>
+  </head>
+  <body>
+    <boot-app>
+      <boot-navbar>
+        <span :slot="brand">
+          <div style="display: flex; align-items: center;">
+            <div class="app-navbar-logo">
+              <img class="d-block mx-auto" style="width: 2.5rem; height: 2.5rem;" src="/assets/logo.svg" alt=""/>
+            </div>
+            PageLogic
+          </div>
+        </span>
+        <li :slot="links" class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true" href="#">Features</a>
+        </li>
+        <li :slot="links" class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true" href="#">Examples</a>
+        </li>
+        <li :slot="links" class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true" href="#">Docs</a>
+        </li>
+      </boot-navbar>
+
+      <app-hero>
+        The benefits of a modern reactive&nbsp;web&nbsp;framework,<br/>
+        without the drawbacks.
+        <div :slot="cta" class="app-hero-code btn btn-outline-secondary btn-lg px-4">
+          <i class="bi bi-currency-dollar"></i><code>npm i pagelogic</code>
+        </div>
+      </app-hero>
+
+      <div class="container px-4 px-sm-3">
+        <div class="row">
+          <app-card :icon="code-slash" :title="HTML-centric">
+            <a href="https://react.dev/" target="_blank">React</a>,
+            <a href="https://vuejs.org/" target="_blank">Vue</a> and
+            <a href="https://angular.io/" target="_blank">Angular</a>
+            strive to turn HTML authoring into JavaScript development.
+            We do the opposite.
+            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
+          </app-card>
+
+          <app-card :icon="braces" :title="Reactive">
+            PageLogic brings reactivity to HTML itself with a small
+            set of extensions, making it ideal for presentation logic.
+            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
+          </app-card>
+
+          <app-card :icon="hdd-stack" :title="SSR-ready">
+            Deliverying content-ready pages to search engines can be
+            challenging. PageLogic does it by default.
+            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
+          </app-card>
+
+          <app-card :icon="puzzle" :title="Component-oriented">
+            Code blocks can easily become reusable components.
+            This promotes building up your own libraries.
+            <!-- <a :slot="footer" href="#" class="btn btn-primary">Learn more</a> -->
+          </app-card>
+        </div>
+      </div>
+
+      <div class="container px-4 px-sm-3 my-4">
+        <pl-data :aka="helloWorldData" :url="/docs/parts/hello-world.md" :type="text"/>
+        <markdown-it :data={helloWorldData.content}/>
+        <br/>
+      </div>
+
+    </boot-app>
+  </body>
+</html>
