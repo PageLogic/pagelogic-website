@@ -1,0 +1,8 @@
+.app-card.borderless > .card {
+  border: 0;
+}
+
+.app-card.borderless > .card > .card-body {
+  padding: 0;
+  padding-bottom: 1rem;
+}

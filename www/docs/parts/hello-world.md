@@ -1,12 +1,12 @@
 ## Hello World
 
-PageLogic completely removes all the usual boilerplate,
+PageLogic removes all boilerplate stuff,
 leaving only what's relevant for your app &mdash; rather than
 for the framework you're using.
 
 <div class="md-row">
 
-<div class="md-col-1">
+<div class="md-col md-col-1">
 
 ```html
 <!-- www/index.html -->
