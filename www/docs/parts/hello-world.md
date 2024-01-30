@@ -34,11 +34,12 @@ pagelogic serve www
 </div>
 </div>
 
+<!--
 ## Why PageLogic
 
-<div class="app-selling-ponts md-row pt-1 mb-0">
-
-<div class="md-col-1" style="display: flex; flex-direction: column">
+<div class="container px-4 px-sm-3">
+<div class="row">
+<app-card :icon="dash-circle" :title="Less of">
 
 **Zero boilerplate** — forget ceremonies like React's `useState()`, `render()` etc. PageLogic handles these details behind the scenes, keeping your code clean and expressive.
 
@@ -48,8 +49,8 @@ pagelogic serve www
 
 **No Virtual DOM** — PageLogic uses direct DOM reflection, a much lighter and efficient solution.
 
-</div>
-<div class="md-col-1" style="display: flex; flex-direction: column">
+</app-card>
+<app-card :icon="plus-circle" :title="More of">
 
 **Isomorphic by design** — with traditional frameworks, running the same logic in both the server and the client can be challenging. PageLogic server does it by default.
 
@@ -59,9 +60,11 @@ pagelogic serve www
 
 **Flexible deployment** — PageLogic pages can be served using the included [Node.js](https://nodejs.org/) server or [Express](https://expressjs.com/) middleware, or can be used as precompiled HTML.
 
+</app-card>
 </div>
 </div>
-
+-->
+<!--
 ## Roadmap
 
 <div class="md-row mb-0">
@@ -75,7 +78,8 @@ First production release is on course for Spring 2024.
 </div>
 <div class="md-col-1">
 
-We'd love to collect as much feedback as possible: if you're interested or you're are just curious about our HTML-centric approach, please star us on GitHub and maybe have a look at our GitHub discussions, which we'll launch soon.
+We'd love to collect your feedback! If you're interested, or you're are just curious about our HTML-centric approach, please star us on GitHub and maybe have a look at our GitHub discussions, which we'll launch soon.
 
 </div>
 </div>
+-->
