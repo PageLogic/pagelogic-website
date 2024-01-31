@@ -1,3 +1,10 @@
+.app-warning {
+  color: white;
+  background-color: orange;
+  padding: .25rem 0;
+  text-align: center;
+}
+
 .app-navbar-logo {
   display: inline-block;
   border-radius: 5px;
