@@ -5,7 +5,6 @@ leaving only what's relevant for your app &mdash; rather than
 for the framework you're using.
 
 <div class="md-row">
-
 <div class="md-col md-col-1">
 
 ```html
@@ -23,7 +22,7 @@ for the framework you're using.
 <div class="md-col">
 
 ```bash
-npm i pagelogic
+npm install -global pagelogic
 pagelogic serve www
 # http://127.0.0.1:3000
 ```
@@ -33,6 +32,8 @@ pagelogic serve www
 <iframe title="Hello World Example" src="https://pagelogic.dev/samples/quick-start" loading="lazy"></iframe>
 </div>
 </div>
+
+<!-- > This is a simple but *complete* example. You can check it out yourself in a matter of seconds. -->
 
 <!--
 ## Why PageLogic

@@ -38,7 +38,7 @@
         </div>
       </app-hero>
 
-      <div class="container px-4 px-sm-3">
+      <div class="container px-4">
         <h2 style="display: none">Selling points</h2>
         <div class="row gx-5">
           <app-card :borderless={true} :icon="code-slash" :title="HTML-centric">
@@ -66,13 +66,13 @@
         </div>
       </div>
 
-      <div class="container px-sm-3">
+      <div class="container px-4">
         <pl-data :aka="helloWorldData" :url="/docs/parts/hello-world.md" :type="text"/>
         <markdown-it :data={helloWorldData.content}/>
         <br/>
       </div>
 
-      <div class="app-why-pagelogic container px-4 px-sm-3">
+      <div class="app-why-pagelogic container px-4">
         <h2>Why PageLogic</h2>
         <div class="row gx-5">
           <app-card class="col-lg-6 d-flex" :icon="feather" :title="Less bloat">
@@ -133,7 +133,7 @@
         </div>
       </div>
 
-      <div class="app-roadmap container px-4 px-sm-3">
+      <div class="app-roadmap container px-4 pb-4">
         <h2>Roadmap</h2>
         <div class="row mb-0 gx-5">
           <div class="col-md-6">
@@ -150,8 +150,18 @@
               and maybe have a look at our GitHub discussions, which we'll launch soon.</p>
           </div>
         </div>
-        <br/>
-        <br/>
+      </div>
+
+      <div class="container px-4">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center pt-4 my-3 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <!-- <a href="/" class="app-navbar-logo mb-3 mb-md-0 me-2 text-body-secondary text-decoration-none lh-1">
+              <img class="d-block mx-auto" style="width: 2.5rem; height: 2.5rem;" src="/assets/logo.svg" alt=""/>
+            </a> -->
+            <span class="px-1 mb-3 mb-md-0 text-body-secondary">© {(new window.Date()).getFullYear()} <a href="https://github.com/PageLogic">PageLogic</a></span>
+          </div>
+          <a class="text-body-secondary mb-3 mb-md-0" style="font-size: 28px;" href="https://github.com/fcapolini/pagelogic"><i class="bi bi-github"></i></a>
+        </footer>
       </div>
     </boot-app>
   </body>
