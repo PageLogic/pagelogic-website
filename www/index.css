@@ -154,7 +154,13 @@ h2 {
 }
 
 .markdown-body pre code {
+  font-size: 14px;
   background-color: transparent;
+}
+@media (min-width: 1200px) {
+  .markdown-body pre code {
+    font-size: 15px;
+  }
 }
 
 .markdown-body iframe {
@@ -247,7 +253,7 @@ h2 {
 }
 
 ul.app-card-points {
-  list-style-type: " →  ";
+  list-style-type: "✓  ";
 }
 ul.app-card-points > li {
   /* color: color-mix(in srgb, currentColor 75%, transparent); */
@@ -257,11 +263,6 @@ ul.app-card-points > li:first-of-type {
   margin-top: 1.5rem;
 }
 ul.app-card-points > li > h4 {
-  /* font-size: 19px; */
-  /* font-weight: bolder; */
-  /* color: var(--bs-link-color); */
-  /* color: color-mix(in srgb, var(--bs-body-color) 100%, transparent); */
-  /* margin: 0; */
   font-size: 20px;
   font-weight: bolder;
   margin: 0;

@@ -22,7 +22,7 @@ for the framework you're using.
 <div class="md-col">
 
 ```bash
-npm install -global pagelogic
+npm install -g pagelogic
 pagelogic serve www
 # http://127.0.0.1:3000
 ```
