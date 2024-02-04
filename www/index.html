@@ -13,7 +13,9 @@
   </head>
   <body>
     <boot-app>
-      <div class="app-warning">Preview</div>
+      <div class="app-worning-container">
+        <div class="app-warning">preview</div>
+      </div>
 
       <boot-navbar>
         <span :slot="brand">
@@ -44,7 +46,7 @@
       </app-hero>
 
       <div class="container px-4">
-        <h2 style="display: none">Selling points</h2>
+        <h2 style="opacity: 0; line-height: 1rem; margin: 0; margin-bottom: -1rem">Selling points</h2>
         <div class="row gx-5">
           <app-card :borderless={true} :icon="code-slash" :title="HTML-centric">
             <a href="https://react.dev/" target="_blank">React</a>,
@@ -63,11 +65,6 @@
             Deliverying content-ready pages to search engines can be
             challenging. PageLogic does it by default.
           </app-card>
-
-          <!-- <app-card :borderless={true} :icon="puzzle" :title="Component-oriented">
-            Code blocks can easily become reusable components.
-            This promotes building up your own libraries.
-          </app-card> -->
         </div>
       </div>
 
@@ -79,7 +76,7 @@
               e.onload = () => e.style.opacity = 1;
             }}
         />
-        <br/>
+        <br style="user-select: none;"/>
       </div>
 
       <div class="app-why-pagelogic container px-4">
@@ -177,7 +174,7 @@
           </div>
           <div class="col align-items-center" style="text-align: right">
             <a class="text-body-secondary mb-3 mb-md-0" style="font-size: 28px;"
-                href="https://github.com/fcapolini/pagelogic"><i class="bi bi-github"></i></a>
+                href="https://github.com/fcapolini/pagelogic" title="GitHub"><i class="bi bi-github"></i></a>
           </div>
         </footer>
       </div>
