@@ -193,6 +193,8 @@ h2 {
   font-weight: normal;
   letter-spacing: .5px;
   padding: .5rem .33rem .5rem 1.125rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   margin: 0;
 }
 .markdown-body .app-sample h3 i {
