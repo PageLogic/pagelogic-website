@@ -36,10 +36,10 @@
       </boot-navbar>
 
       <app-hero :logo="/assets/logo.svg" :title="PageLogic">
-        The benefits of a reactive&nbsp;web&nbsp;framework,<br/>
-        without the drawbacks.
+        the power of a reactive&nbsp;web&nbsp;framework,<br/>
+        without the complexity
         <div :slot="cta" class="app-hero-code">
-          <i class="bi bi-currency-dollar"></i><code>npm i pagelogic</code>
+          <i class="bi bi-terminal"></i><code>npm i pagelogic</code>
         </div>
       </app-hero>
 
@@ -73,7 +73,12 @@
 
       <div class="container px-4">
         <pl-data :aka="helloWorldData" :url="/docs/parts/hello-world.md" :type="text"/>
-        <markdown-it :data={helloWorldData.content}/>
+        <markdown-it :data={helloWorldData.content}
+            :postpro={() => {
+              const e = $scope.dom.getElementsByTagName('iframe')[0];
+              e.onload = () => e.style.opacity = 1;
+            }}
+        />
         <br/>
       </div>
 
@@ -100,7 +105,7 @@
               </li>
               <li>
                 <blockquote class="blockquote">No Virtual DOM</blockquote>
-                PageLogic uses direct DOM reflection, a much lighter and
+                it uses direct DOM reflection, a much lighter and
                 efficient solution.
               </li>
             </ul>
@@ -115,23 +120,23 @@
                 PageLogic server does it by default.
               </li>
               <li>
+                <blockquote class="blockquote">Simple components</blockquote>
+                turning a block of code into a component is trivial,
+                promoting the development of your own reusable libraries over time.
+              </li>
+              <li>
                 <blockquote class="blockquote">Advanced routing</blockquote>
                 the same set of pages can work as a classic website and as a modern
                 <a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">SPA</a>
                 at the same time.
               </li>
               <li>
-                <blockquote class="blockquote">Simple components</blockquote>
-                going from a simple block of code to a component is trivial.
-                This makes it practical to build your own reusable libraries.
-              </li>
-              <li>
                 <blockquote class="blockquote">Flexible deployment</blockquote>
-                PageLogic pages can be served using the included
+                pages can be served using the included
                 <a href="https://nodejs.org/" target="_blank">Node.js</a>
                 server or
                 <a href="https://expressjs.com/" target="_blank">Express</a>
-                middleware, or can be compiled to static HTML.
+                middleware &mdash; or can be compiled to static HTML.
               </li>
             </ul>
           </app-card>

@@ -43,7 +43,7 @@ h1, h2, h3, h4, blockquote {
 
 .lead {
   font-size: 1.25em;
-  color: color-mix(in srgb, var(--bs-body-color) 66%, transparent);
+  color: color-mix(in srgb, var(--bs-body-color) 75%, transparent);
 }
 @media (min-width: 530px) {
   .lead {
@@ -66,7 +66,7 @@ h1, h2, h3, h4, blockquote {
   align-items: center;
   justify-content: center;
   background: transparent !important;
-  padding: .5rem 1.5rem;
+  padding: .5rem 1.5rem .5rem 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.176);
   border-radius: 6px;
   -webkit-user-select: none;
@@ -76,10 +76,15 @@ h1, h2, h3, h4, blockquote {
 
 .app-hero-code > i {
   display: inline-block;
+  color: black !important;
   font-size: 1.25rem;
   width: 1rem;
-  margin: 0 .66rem 0 -.5rem;
-  opacity: .5;
+  margin: 0 1.5rem 0 0;
+}
+@media (prefers-color-scheme: dark) {
+  .app-hero-code > i {
+    color: white !important;
+  }
 }
 
 .app-hero-code > code {
@@ -153,6 +158,60 @@ h2 {
   border-radius: 6px;
 }
 
+.markdown-body .app-sample {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.176);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.markdown-body .app-sample h3 {
+  position: relative;
+  color: rgb(33, 37, 41);
+  background-color: rgba(33, 37, 41, 0.03);
+  font-size: .9rem;
+  font-weight: normal;
+  letter-spacing: .5px;
+  padding: .5rem .33rem .5rem 1.125rem;
+  margin: 0;
+}
+.markdown-body .app-sample h3 i {
+  font-size: 1rem;
+}
+.markdown-body .app-sample i.right {
+  position: absolute;
+  top: -1.15rem;
+  right: -1rem;
+  font-size: 1.66rem;
+  line-height: 1.66rem;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 1rem;
+}
+.markdown-body .app-sample pre,
+.markdown-body .app-sample iframe {
+  border: 0;
+  margin-bottom: 0;
+}
+.markdown-body .app-sample iframe {
+  opacity: 0;
+}
+@media (prefers-color-scheme: dark) {
+  .markdown-body .app-sample {
+    background-color: rgb(33, 37, 41);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .markdown-body .app-sample h3 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 48, 53);
+  }
+  .markdown-body .app-sample i.right {
+    background-color: rgb(33, 37, 41);
+    border: 2px solid rgb(33, 37, 41);
+  }
+}
+
+
 .markdown-body pre code {
   font-size: 14px;
   background-color: transparent;
@@ -167,7 +226,7 @@ h2 {
   background-color: transparent;
   width: 100%;
   height: calc(100% - 1rem);
-  padding: .5rem .75rem;
+  padding: .5rem .66rem;
   border: 1px solid rgba(0, 0, 0, 0.176);
   border-radius: 6px;
   overflow: hidden;

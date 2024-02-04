@@ -1,0 +1,138 @@
+<lib>
+<link rel="stylesheet" href="/app-kit/gitbook-md.css"/>
+
+<:define tag="gitbook-md:markdown-it"
+  :doc="README.md"
+  :data={mdData.content}
+  :title=""
+  :descr=""
+
+  :resizeTimer={null}
+  :resizeWidth={0}
+  :resizeCount={0}
+  :resizeValue={0}
+
+  :onWindowResize={() => {
+    if (!resizeTimer) {
+      resizeTimer = window.setInterval(() => {
+        const w = window.parseInt(window.getComputedStyle($scope.dom).width);
+        if (w === resizeWidth) {
+          if (++resizeCount > 5) {
+            if (w !== resizeValue) {
+              resizeValue = w;
+              resizeIFrames();
+            }
+            window.clearInterval(resizeTimer);
+            resizeTimer = 0;
+            resizeCount = 0;
+          }
+        } else {
+          resizeWidth = w;
+          resizeCount = 0;
+        }
+      }, 100);
+    }
+  }}
+
+  :resizeIFrames={() => {
+    const ee = $scope.dom.querySelectorAll('iframe');
+    for (let e of ee) {
+      e.style.width = window.getComputedStyle(e.parentElement).width;
+    }
+  }}
+
+  :prepro={(s) => {
+    s = fixTitle(s);
+    s = fixCodeTitles(s);
+    s = fixEmbedUrls(s);
+    return s;
+  }}
+
+  :postpro={(dom) => {
+    const ee = dom.querySelectorAll('iframe');
+    for (let e of ee) {
+      e.onload = () => e.style.opacity = 1;
+      e.style.width = window.getComputedStyle(e.parentElement).width;
+    }
+  }}
+
+  :fixTitle={(s) => {
+    const extractDescr = (s) => {
+      let i1, i2, i3;
+      if (/^\s*---/.test(s)) {
+        i1 = s.indexOf('---');
+        i2 = s.indexOf('description:', i1 + 3);
+        i3 = s.indexOf('---', i1 + 3);
+        i2 > 0 && i3 > 0 && i2 < i3 && (descr = s.substring(i2 + 'description:'.length, i3).trim());
+        i3 > 0 && (s = s.substring(i3 + 3));
+      }
+      return s;
+    }
+
+    const extractTitle = (s) => {
+      let i1 = s.indexOf('\n# ');
+      let i2 = (i1 >= 0 ? s.indexOf('\n', i1 + 3) : -1);
+      i2 >= 0 && (title = s.substring(i1 + 3, i2));
+      i2 >= 0 && (s = s.substring(i2 + 1));
+      return s;
+    }
+
+    s = extractDescr(s);
+    s = extractTitle(s);
+
+    let s2 = '';
+    //title && (s2 = `\n# ${title}\n`);
+    //descr && (s2 += `> ${descr}\n`);
+    title && (s2 = `<div class="page-title">${title}</div>\n`);
+    descr && (s2 += `<div class="page-descr">${descr}</div>\n`);
+    s = s2 + s;
+
+    return s;
+  }}
+
+  :fixEmbedUrls={(s) => {
+    const re = /\{% embed url="(.+?)" %\}/g;
+    const p = [];
+    let i = 0;
+    for (let res; !!(res = re.exec(s));) {
+      res.index > i && (p.push(s.substring(i, res.index)));
+      i = res.index + res[0].length;
+      p.push(`<div class="iframe-container">
+        <div class="iframe-toolbar">
+          <div class="iframe-dot red"></div>
+          <div class="iframe-dot orange"></div>
+          <div class="iframe-dot green"></div>
+          <div class="iframe-address">
+            <a href="${res[1]}" target="sample">${res[1]}</a>
+          </div>
+        </div>
+        <div class="iframe-background"></div>
+        <iframe src="${res[1]}" loading="lazy"></iframe>
+      </div>`);
+    }
+    if (i < s.length) {
+      p.push(s.substring(i));
+    }
+    return p.join('');
+  }}
+
+  :fixCodeTitles={(s) => {
+    const re = /\{% code title="(.+?)" %\}/g;
+    const p = [];
+    let i = 0;
+    for (let res; !!(res = re.exec(s));) {
+      res.index > i && (p.push(s.substring(i, res.index)));
+      i = res.index + res[0].length;
+      p.push(`<div class="code-container"><div class="code-title">${res[1]}</div>\n`);
+    }
+    if (i < s.length) {
+      p.push(s.substring(i));
+    }
+    const ret = p.join('');
+    return ret.replaceAll('{% endcode %}', '</div>');
+  }}
+>
+  <pl-data :aka="mdData" :url={`/markdown/${doc}`} :type="text"/>
+</:define>
+
+</lib>
