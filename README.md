@@ -1,1 +1,1 @@
-Project for [pagelogic.dev](https://pagelogic.dev/)
+[pagelogic.dev](https://pagelogic.dev/) website
