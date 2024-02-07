@@ -181,6 +181,7 @@ h2 {
 .markdown-body .app-sample {
   display: flex;
   flex-direction: column;
+  margin-top: .25rem;
   border: 1px solid rgba(0, 0, 0, 0.176);
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -216,6 +217,8 @@ h2 {
   margin-bottom: 0;
 }
 .markdown-body .app-sample iframe {
+  padding-top: .6rem;
+  padding-left: .75rem;
   opacity: 0;
 }
 @media (prefers-color-scheme: dark) {
