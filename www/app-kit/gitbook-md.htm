@@ -3,16 +3,16 @@
 
 <:define tag="gitbook-md:markdown-it"
   :doc="README.md"
-  :data={mdData.content}
+  :data=${mdData.content}
   :title=""
   :descr=""
 
-  :resizeTimer={null}
-  :resizeWidth={0}
-  :resizeCount={0}
-  :resizeValue={0}
+  :resizeTimer=${null}
+  :resizeWidth=${0}
+  :resizeCount=${0}
+  :resizeValue=${0}
 
-  :onWindowResize={() => {
+  :onWindowResize=${() => {
     if (!resizeTimer) {
       resizeTimer = window.setInterval(() => {
         const w = window.parseInt(window.getComputedStyle($scope.dom).width);
@@ -34,21 +34,21 @@
     }
   }}
 
-  :resizeIFrames={() => {
+  :resizeIFrames=${() => {
     const ee = $scope.dom.querySelectorAll('iframe');
     for (let e of ee) {
       e.style.width = window.getComputedStyle(e.parentElement).width;
     }
   }}
 
-  :prepro={(s) => {
+  :prepro=${(s) => {
     s = fixTitle(s);
     s = fixCodeTitles(s);
     s = fixEmbedUrls(s);
     return s;
   }}
 
-  :postpro={(dom) => {
+  :postpro=${(dom) => {
     const ee = dom.querySelectorAll('iframe');
     for (let e of ee) {
       e.onload = () => e.style.opacity = 1;
@@ -56,7 +56,7 @@
     }
   }}
 
-  :fixTitle={(s) => {
+  :fixTitle=${(s) => {
     const extractDescr = (s) => {
       let i1, i2, i3;
       if (/^\s*---/.test(s)) {
@@ -90,7 +90,7 @@
     return s;
   }}
 
-  :fixEmbedUrls={(s) => {
+  :fixEmbedUrls=${(s) => {
     const re = /\{% embed url="(.+?)" %\}/g;
     const p = [];
     let i = 0;
@@ -116,7 +116,7 @@
     return p.join('');
   }}
 
-  :fixCodeTitles={(s) => {
+  :fixCodeTitles=${(s) => {
     const re = /\{% code title="(.+?)" %\}/g;
     const p = [];
     let i = 0;
@@ -132,7 +132,7 @@
     return ret.replaceAll('{% endcode %}', '</div>');
   }}
 >
-  <pl-data :aka="mdData" :url={`/markdown/${doc}`} :type="text"/>
+  <pl-data :aka="mdData" :url=${`/markdown/${doc}`} :type="text"/>
 </:define>
 
 </lib>

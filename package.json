@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pagelogic": "^1.1.10"
+    "pagelogic": "^1.2.1"
   }
 }

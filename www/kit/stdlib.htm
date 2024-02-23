@@ -2,17 +2,17 @@
 
 <:define
   tag="pl-data:script"
-  type={`text/${type === 'json' ? 'json' : 'plain'}`}
+  type=${`text/${type === 'json' ? 'json' : 'plain'}`}
 
   :url=""
   :type="json"
   :method="get"
-  :params={null}
-  :headers={null}
-  :autoGet={true}
-  :content={null}
+  :params=${null}
+  :headers=${null}
+  :autoGet=${true}
+  :content=${null}
 
-  :trigger={() => {
+  :trigger=${() => {
     if (url) {
       _lastUrl = url;
       doRequest(url);
@@ -20,13 +20,13 @@
   }}
 
   :_lastUrl=""
-  :_okCount={0}
-  :_errCount={0}
-  :_dataCount={0}
-  :_isServer={!!window.happyDOM}
-  :_dom={$scope.dom}
+  :_okCount=${0}
+  :_errCount=${0}
+  :_dataCount=${0}
+  :_isServer=${!!window.happyDOM}
+  :_dom=${$scope.dom}
 
-  :handle-url={(() => {
+  :handle-url=${(() => {
     var s;
     if (url && url !== _lastUrl && autoGet) {
       _lastUrl = url;
@@ -40,7 +40,7 @@
     }
   })()}
 
-  :doRequest={(url, options, resCB, errCB) => {
+  :doRequest=${(url, options, resCB, errCB) => {
     url || (url = this.url);
     resCB || (resCB = (res) => {
       return type === 'json' ? res.json() : res.text();

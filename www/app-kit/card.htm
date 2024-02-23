@@ -1,13 +1,13 @@
 <lib>
 <link rel="stylesheet" href="/app-kit/card.css"/>
 
-<:define tag="app-card" class="app-card col-12 col-md-4 d-flex" :class-borderless={borderless}
-  :icon="" :title="" :link="" :borderless={false}
+<:define tag="app-card" class="app-card col-12 col-md-4 d-flex" :class-borderless=${borderless}
+  :icon="" :title="" :link="" :borderless=${false}
 >
   <div class="card mb-4">
     <div class="card-body">
       <h3 class="card-title">
-        <i class={`bi bi-${icon}`}></i>&nbsp;&nbsp;<a href={link}>{title}</a>
+        <i class=${`bi bi-${icon}`}></i>&nbsp;&nbsp;<a href=${link}>${title}</a>
       </h3>
       <hr/>
       <p class="card-text">

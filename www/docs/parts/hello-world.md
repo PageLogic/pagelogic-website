@@ -9,7 +9,7 @@ PageLogic removes all the boilerplate stuff, leaving only what's relevant for yo
 ```html
 <html>
   <body>
-    <button :count={0} :on-click={() => count++}>
+    <button :count=${0} :on-click=${() => count++}>
       Clicks: ${count}
     </button>
   </body>

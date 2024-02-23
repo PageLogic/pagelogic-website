@@ -48,7 +48,7 @@
       <div class="container px-4">
         <h2 style="opacity: 0; line-height: 1rem; margin: 0; margin-bottom: -1rem">Selling points</h2>
         <div class="row gx-5">
-          <app-card :borderless={true} :icon="code-slash" :title="HTML-centric">
+          <app-card :borderless=${true} :icon="code-slash" :title="HTML-centric">
             <a href="https://react.dev/" target="_blank">React</a>,
             <a href="https://vuejs.org/" target="_blank">Vue</a> and
             <a href="https://angular.io/" target="_blank">Angular</a>
@@ -56,12 +56,12 @@
             We do the opposite.
           </app-card>
 
-          <app-card :borderless={true} :icon="braces" :title="Reactive">
+          <app-card :borderless=${true} :icon="braces" :title="Reactive">
             PageLogic brings reactivity to HTML itself with a small
             set of extensions, making it ideal for presentation logic.
           </app-card>
 
-          <app-card :borderless={true} :icon="hdd-stack" :title="SEO-friendly">
+          <app-card :borderless=${true} :icon="hdd-stack" :title="SEO-friendly">
             Deliverying content-ready pages to search engines can be
             challenging. PageLogic does it by default.
           </app-card>
@@ -70,8 +70,8 @@
 
       <div class="container px-4">
         <pl-data :aka="helloWorldData" :url="/docs/parts/hello-world.md" :type="text"/>
-        <markdown-it :data={helloWorldData.content}
-            :postpro={() => {
+        <markdown-it :data=${helloWorldData.content}
+            :postpro=${() => {
               const e = $scope.dom.getElementsByTagName('iframe')[0];
               e.onload = () => e.style.opacity = 1;
             }}
@@ -163,7 +163,7 @@
         <footer class="d-flex flex-wrap justify-content-between align-items-center pt-4 pb-2 my-3 border-top">
           <div class="col align-items-center">
             <span class="px-1 mb-3 mb-md-0 text-body-secondary">
-              © {(new window.Date()).getFullYear()}
+              © ${(new window.Date()).getFullYear()}
               <a href="https://github.com/PageLogic">PageLogic</a>
             </span>
           </div>
